@@ -12,7 +12,7 @@ namespace Martin_Employee_Linked_List
 {
     public partial class EmployeeForm : Form
     {
-        private Company company = new Company();
+        private Company company = Company.Instance;
 
         public EmployeeForm()
         {
@@ -27,11 +27,6 @@ namespace Martin_Employee_Linked_List
             Employee employee = new Employee(LastNameTxtBx.Text, FirstNameTxtBx.Text, GenderCmbBx.Text, DepartmentTxtBx.Text, Decimal.Parse(SalaryTxtBx.Text));
             company.AddEmployee(employee);
             this.Close();
-        }
-
-        private void EmployeeForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            MainForm mainForm = new MainForm();
         }
     }
 }

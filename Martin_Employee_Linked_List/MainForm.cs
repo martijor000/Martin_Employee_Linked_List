@@ -1,3 +1,7 @@
+using CsvHelper;
+using Microsoft.VisualBasic.ApplicationServices;
+using System.Globalization;
+
 namespace Martin_Employee_Linked_List
 {
     public partial class MainForm : Form
@@ -7,9 +11,23 @@ namespace Martin_Employee_Linked_List
             InitializeComponent();
         }
 
+        private decimal ConvertSalary(string salaryText)
+        {
+            // Remove dollar sign and commas, and convert to decimal
+            salaryText = salaryText.Replace("$", "").Replace(",", "").Trim();
+            if (decimal.TryParse(salaryText, out decimal salary))
+            {
+                return salary;
+            }
+            return 0; // Handle invalid salary format as needed
+        }
+
         private void FindEmpBtn_Click(object sender, EventArgs e)
         {
-
+            FindEmployeeForm findEmployeeForm = new FindEmployeeForm();
+            this.Hide();
+            findEmployeeForm.ShowDialog();
+            this.Show();
         }
 
         private void AddEmpBtn_Click(object sender, EventArgs e)
@@ -22,7 +40,10 @@ namespace Martin_Employee_Linked_List
 
         private void DisplayAvgEmpSalBtn_Click(object sender, EventArgs e)
         {
-
+            AverageSalaryForm avgEmpForm = new AverageSalaryForm();
+            this.Hide();
+            avgEmpForm.ShowDialog();
+            this.Show();
         }
 
         private void EditEmpBtn_Click(object sender, EventArgs e)
@@ -34,6 +55,46 @@ namespace Martin_Employee_Linked_List
         {
 
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            List<Employee> employees = new List<Employee>();
+
+            using (var streamReader = new StreamReader(Path.Combine("Data", "employees.csv")))
+            {
+                using (var csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture))
+                {
+                    while (csvReader.Read())
+                    {
+                        string[] fullName = csvReader.GetField<string>(0).Split(' ');
+                        string salaryText = csvReader.GetField<string>(2);
+                        decimal salary = ConvertSalary(salaryText);
+
+                        if (fullName.Length == 2)
+                        {
+                            Employee employee = new Employee(
+                                firstname: fullName[0],
+                                lastname: fullName[1],
+                                gender: "Male",
+                                department: csvReader.GetField<string>(3),
+                                salary: salary
+                            );
+
+                            employees.Add(employee); // Add the employee to the list
+                        }
+                    }
+                }
+            }
+
+            // Assuming 'company' is an instance of the Company class
+            foreach (Employee employee in employees)
+            {
+                Company.Instance.AddEmployee(employee);
+            }
+        }
+
     }
+
+
 
 }

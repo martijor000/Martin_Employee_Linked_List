@@ -97,6 +97,7 @@
             Controls.Add(FindEmpBtn);
             Name = "MainForm";
             Text = "Company_Emp";
+            Load += MainForm_Load;
             ResumeLayout(false);
         }
 

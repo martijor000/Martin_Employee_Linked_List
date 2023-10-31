@@ -150,7 +150,6 @@
             Controls.Add(SubmitBtn);
             Name = "EmployeeForm";
             Text = "EmployeeForm";
-            FormClosing += EmployeeForm_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

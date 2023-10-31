@@ -28,106 +28,120 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            FindLastNameTxtbx = new TextBox();
+            FindFirstNameTxtBx = new TextBox();
+            FindDepartmentTxtBx = new TextBox();
+            FindLastNameLbl = new Label();
+            FindFirstNameLbl = new Label();
+            FindDepartmentLbl = new Label();
+            SearchLastNameBtn = new Button();
+            SearchFirstNameBtn = new Button();
+            SearchDepartmentBtn = new Button();
+            FindLbl = new Label();
             SuspendLayout();
             // 
-            // textBox1
+            // FindLastNameTxtbx
             // 
-            textBox1.Location = new Point(365, 98);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(175, 35);
-            textBox1.TabIndex = 0;
+            FindLastNameTxtbx.Location = new Point(275, 117);
+            FindLastNameTxtbx.Name = "FindLastNameTxtbx";
+            FindLastNameTxtbx.Size = new Size(175, 35);
+            FindLastNameTxtbx.TabIndex = 0;
             // 
-            // textBox2
+            // FindFirstNameTxtBx
             // 
-            textBox2.Location = new Point(365, 207);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(175, 35);
-            textBox2.TabIndex = 1;
+            FindFirstNameTxtBx.Location = new Point(275, 226);
+            FindFirstNameTxtBx.Name = "FindFirstNameTxtBx";
+            FindFirstNameTxtBx.Size = new Size(175, 35);
+            FindFirstNameTxtBx.TabIndex = 1;
             // 
-            // textBox3
+            // FindDepartmentTxtBx
             // 
-            textBox3.Location = new Point(365, 314);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(175, 35);
-            textBox3.TabIndex = 2;
+            FindDepartmentTxtBx.Location = new Point(275, 333);
+            FindDepartmentTxtBx.Name = "FindDepartmentTxtBx";
+            FindDepartmentTxtBx.Size = new Size(175, 35);
+            FindDepartmentTxtBx.TabIndex = 2;
             // 
-            // label1
+            // FindLastNameLbl
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(274, 100);
-            label1.Name = "label1";
-            label1.Size = new Size(68, 30);
-            label1.TabIndex = 3;
-            label1.Text = "label1";
+            FindLastNameLbl.AutoSize = true;
+            FindLastNameLbl.Location = new Point(145, 119);
+            FindLastNameLbl.Name = "FindLastNameLbl";
+            FindLastNameLbl.Size = new Size(112, 30);
+            FindLastNameLbl.TabIndex = 3;
+            FindLastNameLbl.Text = "Last Name";
             // 
-            // label2
+            // FindFirstNameLbl
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(274, 209);
-            label2.Name = "label2";
-            label2.Size = new Size(68, 30);
-            label2.TabIndex = 4;
-            label2.Text = "label2";
+            FindFirstNameLbl.AutoSize = true;
+            FindFirstNameLbl.Location = new Point(145, 228);
+            FindFirstNameLbl.Name = "FindFirstNameLbl";
+            FindFirstNameLbl.Size = new Size(113, 30);
+            FindFirstNameLbl.TabIndex = 4;
+            FindFirstNameLbl.Text = "First Name";
             // 
-            // label3
+            // FindDepartmentLbl
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(274, 316);
-            label3.Name = "label3";
-            label3.Size = new Size(68, 30);
-            label3.TabIndex = 5;
-            label3.Text = "label3";
+            FindDepartmentLbl.AutoSize = true;
+            FindDepartmentLbl.Location = new Point(145, 335);
+            FindDepartmentLbl.Name = "FindDepartmentLbl";
+            FindDepartmentLbl.Size = new Size(124, 30);
+            FindDepartmentLbl.TabIndex = 5;
+            FindDepartmentLbl.Text = "Department";
             // 
-            // button1
+            // SearchLastNameBtn
             // 
-            button1.Location = new Point(546, 95);
-            button1.Name = "button1";
-            button1.Size = new Size(131, 40);
-            button1.TabIndex = 6;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            SearchLastNameBtn.Location = new Point(456, 114);
+            SearchLastNameBtn.Name = "SearchLastNameBtn";
+            SearchLastNameBtn.Size = new Size(131, 40);
+            SearchLastNameBtn.TabIndex = 6;
+            SearchLastNameBtn.Text = "Search";
+            SearchLastNameBtn.UseVisualStyleBackColor = true;
+            SearchLastNameBtn.Click += SearchLastNameBtn_Click;
             // 
-            // button2
+            // SearchFirstNameBtn
             // 
-            button2.Location = new Point(546, 204);
-            button2.Name = "button2";
-            button2.Size = new Size(131, 40);
-            button2.TabIndex = 7;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            SearchFirstNameBtn.Location = new Point(456, 223);
+            SearchFirstNameBtn.Name = "SearchFirstNameBtn";
+            SearchFirstNameBtn.Size = new Size(131, 40);
+            SearchFirstNameBtn.TabIndex = 7;
+            SearchFirstNameBtn.Text = "Search";
+            SearchFirstNameBtn.UseVisualStyleBackColor = true;
+            SearchFirstNameBtn.Click += SearchFirstNameBtn_Click;
             // 
-            // button3
+            // SearchDepartmentBtn
             // 
-            button3.Location = new Point(546, 311);
-            button3.Name = "button3";
-            button3.Size = new Size(131, 40);
-            button3.TabIndex = 8;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
+            SearchDepartmentBtn.Location = new Point(456, 330);
+            SearchDepartmentBtn.Name = "SearchDepartmentBtn";
+            SearchDepartmentBtn.Size = new Size(131, 40);
+            SearchDepartmentBtn.TabIndex = 8;
+            SearchDepartmentBtn.Text = "Search";
+            SearchDepartmentBtn.UseVisualStyleBackColor = true;
+            SearchDepartmentBtn.Click += SearchDepartmentBtn_Click;
+            // 
+            // FindLbl
+            // 
+            FindLbl.AutoSize = true;
+            FindLbl.Location = new Point(327, 59);
+            FindLbl.Name = "FindLbl";
+            FindLbl.Size = new Size(85, 30);
+            FindLbl.TabIndex = 9;
+            FindLbl.Text = "Find By:";
             // 
             // FindEmployeeForm
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(FindLbl);
+            Controls.Add(SearchDepartmentBtn);
+            Controls.Add(SearchFirstNameBtn);
+            Controls.Add(SearchLastNameBtn);
+            Controls.Add(FindDepartmentLbl);
+            Controls.Add(FindFirstNameLbl);
+            Controls.Add(FindLastNameLbl);
+            Controls.Add(FindDepartmentTxtBx);
+            Controls.Add(FindFirstNameTxtBx);
+            Controls.Add(FindLastNameTxtbx);
             Name = "FindEmployeeForm";
             Text = "FindEmployeeForm";
             ResumeLayout(false);
@@ -136,14 +150,15 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private TextBox FindLastNameTxtbx;
+        private TextBox FindFirstNameTxtBx;
+        private TextBox FindDepartmentTxtBx;
+        private Label FindLastNameLbl;
+        private Label FindFirstNameLbl;
+        private Label FindDepartmentLbl;
+        private Button SearchLastNameBtn;
+        private Button SearchFirstNameBtn;
+        private Button SearchDepartmentBtn;
+        private Label FindLbl;
     }
 }
