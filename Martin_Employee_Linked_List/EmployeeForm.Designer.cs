@@ -112,7 +112,7 @@
             SalaryLbl.Name = "SalaryLbl";
             SalaryLbl.Size = new Size(68, 30);
             SalaryLbl.TabIndex = 8;
-            SalaryLbl.Text = "Salary";
+            SalaryLbl.Text = "TreeSalary";
             // 
             // DepartmentLbl
             // 

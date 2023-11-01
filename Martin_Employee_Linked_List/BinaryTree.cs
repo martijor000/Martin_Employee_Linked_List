@@ -11,6 +11,7 @@ namespace Martin_Employee_Linked_List
         public TreeNode Root { get; private set; }
 
         private int NodeCount;
+        private decimal TreeSalary;
 
         public int GetNodeCount
         {
@@ -25,7 +26,8 @@ namespace Martin_Employee_Linked_List
         public void Insert(Employee employee)
         {
             Root = InsertNode(Root, employee);
-            NodeCount++;
+            NodeCount = NodeCount + 1;
+            TreeSalary = TreeSalary + employee.GetSalary;
         }
         private TreeNode InsertNode(TreeNode root, Employee employee)
         {
@@ -49,15 +51,11 @@ namespace Martin_Employee_Linked_List
         {
             return FindNodeRecursive(Root, lastName, searchCriteria);
         }
-        public decimal TotalSalary()
-        {
-            foreach (TreeNode node in Root)l
-            {
-                if (node != null)
-                {
 
-                }
-            }
+        public decimal GetTreeSalary
+        {
+            get { return TreeSalary; }
+            set { TreeSalary = value; }
         }
 
         private TreeNode FindNodeRecursive(TreeNode node, string searchValue, SearchCriteria searchCriteria)

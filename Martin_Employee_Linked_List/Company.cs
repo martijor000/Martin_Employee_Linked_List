@@ -70,11 +70,11 @@ namespace Martin_Employee_Linked_List
 
             foreach (var kvp in AlphaTree)
             {
-                total =+ kvp.Value.TotalSalary();
-                totalNodes = +kvp.Value.GetNodeCount; 
+                total += kvp.Value.GetTreeSalary;
+                totalNodes += kvp.Value.GetNodeCount; 
             }
 
-            return total;
+            return total / totalNodes;
         }
     }
 }

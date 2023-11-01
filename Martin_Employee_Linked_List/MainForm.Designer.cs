@@ -61,7 +61,7 @@
             DisplayAvgEmpSalBtn.Name = "DisplayAvgEmpSalBtn";
             DisplayAvgEmpSalBtn.Size = new Size(302, 40);
             DisplayAvgEmpSalBtn.TabIndex = 2;
-            DisplayAvgEmpSalBtn.Text = "Display Average Employee Salary";
+            DisplayAvgEmpSalBtn.Text = "Display Average Employee TreeSalary";
             DisplayAvgEmpSalBtn.UseVisualStyleBackColor = true;
             DisplayAvgEmpSalBtn.Click += DisplayAvgEmpSalBtn_Click;
             // 

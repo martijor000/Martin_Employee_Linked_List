@@ -39,7 +39,7 @@
             SalaryTitleLbl.Name = "SalaryTitleLbl";
             SalaryTitleLbl.Size = new Size(150, 30);
             SalaryTitleLbl.TabIndex = 0;
-            SalaryTitleLbl.Text = "Average Salary";
+            SalaryTitleLbl.Text = "Average TreeSalary";
             // 
             // AvgSalaryLbl
             // 

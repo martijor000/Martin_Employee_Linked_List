@@ -75,7 +75,7 @@ namespace Martin_Employee_Linked_List
                             Employee employee = new Employee(
                                 firstname: fullName[0],
                                 lastname: fullName[1],
-                                gender: "Male",
+                                gender: csvReader.GetField(1),
                                 department: csvReader.GetField<string>(3),
                                 salary: salary
                             );
