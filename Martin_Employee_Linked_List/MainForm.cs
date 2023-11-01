@@ -19,7 +19,7 @@ namespace Martin_Employee_Linked_List
             {
                 return salary;
             }
-            return 0; // Handle invalid salary format as needed
+            return 0;
         }
 
         private void FindEmpBtn_Click(object sender, EventArgs e)
@@ -48,12 +48,20 @@ namespace Martin_Employee_Linked_List
 
         private void EditEmpBtn_Click(object sender, EventArgs e)
         {
-
+            FindEmployeeForm empForm = new FindEmployeeForm();
+            empForm.SetEditMode();
+            this.Hide();
+            empForm.ShowDialog();
+            this.Show();
         }
 
         private void DeleteEmpBtn_Click(object sender, EventArgs e)
         {
-
+            FindEmployeeForm empForm = new FindEmployeeForm();
+            empForm.SetEditMode();
+            this.Hide();
+            empForm.ShowDialog();
+            this.Show();
         }
 
         private void MainForm_Load(object sender, EventArgs e)

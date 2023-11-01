@@ -63,6 +63,16 @@ namespace Martin_Employee_Linked_List
             return null;
         }
 
+        public void SaveEditedEmployee(Employee employee)
+        {
+
+        }
+
+        public void DeleteEmployee(Employee employee)
+        {
+
+        }
+
         public Decimal AverageSalaryEmployees()
         {
             decimal total = 0;
