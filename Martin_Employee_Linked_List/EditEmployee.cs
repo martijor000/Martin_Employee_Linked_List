@@ -13,24 +13,37 @@ namespace Martin_Employee_Linked_List
 {
     public partial class EditEmployee : Form
     {
+        private Employee _employee;
+        private Employee _editedEmployee;
+
         public EditEmployee(Employee _editemployee)
         {
             InitializeComponent();
             EditFirstNameTxtbx.Text = _editemployee.GetFirstName;
             EditLastNameTxtbx.Text = _editemployee.GetLastName;
-            EditGenderCmb.Text = _editemployee.GetGender;
+            EditGenderCmb.Items.Add("F");
+            EditGenderCmb.Items.Add("M");
             EditDepartmentTxtbx.Text = _editemployee.GetDepartment;
             EditSalaryTxtbx.Text = _editemployee.GetSalary.ToString();
+            _employee = _editemployee;
+            _editedEmployee = _employee;
         }
 
-        private void DeleteBtn_Click(object sender, EventArgs e)
+        public void DeleteBtn_Click(object sender, EventArgs e)
         {
-
+            Company.Instance.DeleteEmployee(_employee);
+            this.Close();
         }
 
-        private void SaveBtn_Click(object sender, EventArgs e)
+        public void SaveBtn_Click(object sender, EventArgs e)
         {
-
+            _editedEmployee.GetFirstName = EditFirstNameTxtbx.Text;
+            _editedEmployee.GetLastName = EditLastNameTxtbx.Text;
+            _editedEmployee.GetGender = EditGenderCmb.Text;
+            _editedEmployee.GetDepartment = EditDepartmentTxtbx.Text;
+            _editedEmployee.GetSalary = Convert.ToDecimal(EditSalaryTxtbx.Text);
+            Company.Instance.SaveEditedEmployee(_employee, _editedEmployee);
+            this.Close();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Martin_Employee_Linked_List
     public class Company
     {
         private static Company instance;
+        private List<Employee> EmployeeList = new List<Employee>();
         private Dictionary<char, BinaryTree> AlphaTree = new Dictionary<char, BinaryTree>();
         private string _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
      
@@ -22,6 +23,7 @@ namespace Martin_Employee_Linked_List
                 AlphaTree.Add(c, new BinaryTree());
             }
         }
+
         public static Company Instance
         {
             get
@@ -47,7 +49,10 @@ namespace Martin_Employee_Linked_List
             if (criteria == SearchCriteria.LastName && AlphaTree.ContainsKey(searchValue[0]))
             {
                 TreeNode node = AlphaTree[searchValue[0]].FindNode(searchValue, criteria);
-                return node._employee;
+                if(node != null)
+                {
+                    return node._employee;
+                }
             }
 
             // If the search criteria is not last name we iterate through each branch for first name or department
@@ -63,14 +68,20 @@ namespace Martin_Employee_Linked_List
             return null;
         }
 
-        public void SaveEditedEmployee(Employee employee)
+        public void SaveEditedEmployee(Employee employee, Employee editedEmployee)
         {
+                // Remove the old node from the binary tree
+                AlphaTree[employee.GetLastName[0]].Delete(employee);
 
+                // Add the updated employee to the binary tree
+                AlphaTree[editedEmployee.GetLastName[0]].Insert(editedEmployee);
         }
+
+
 
         public void DeleteEmployee(Employee employee)
         {
-
+            AlphaTree[employee.GetLastName[0]].Delete(employee);
         }
 
         public Decimal AverageSalaryEmployees()
@@ -85,6 +96,19 @@ namespace Martin_Employee_Linked_List
             }
 
             return total / totalNodes;
+        }
+
+        public List<Employee> GetAllEmployees()
+        {
+            foreach (var kvp in AlphaTree)
+            {
+                if(kvp.Value.Root != null)
+                {
+                    EmployeeList.AddRange(kvp.Value.ReturnAllEmployeeNodes());
+                }
+            }
+
+            return EmployeeList;
         }
     }
 }

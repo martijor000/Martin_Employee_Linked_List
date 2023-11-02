@@ -33,11 +33,12 @@
             DisplayAvgEmpSalBtn = new Button();
             EditEmpBtn = new Button();
             DeleteEmpBtn = new Button();
+            EmployeeListBtn = new Button();
             SuspendLayout();
             // 
             // FindEmpBtn
             // 
-            FindEmpBtn.Location = new Point(528, 129);
+            FindEmpBtn.Location = new Point(528, 150);
             FindEmpBtn.Name = "FindEmpBtn";
             FindEmpBtn.Size = new Size(302, 40);
             FindEmpBtn.TabIndex = 0;
@@ -47,7 +48,7 @@
             // 
             // AddEmpBtn
             // 
-            AddEmpBtn.Location = new Point(528, 215);
+            AddEmpBtn.Location = new Point(528, 230);
             AddEmpBtn.Name = "AddEmpBtn";
             AddEmpBtn.Size = new Size(302, 40);
             AddEmpBtn.TabIndex = 1;
@@ -57,7 +58,7 @@
             // 
             // DisplayAvgEmpSalBtn
             // 
-            DisplayAvgEmpSalBtn.Location = new Point(528, 301);
+            DisplayAvgEmpSalBtn.Location = new Point(528, 310);
             DisplayAvgEmpSalBtn.Name = "DisplayAvgEmpSalBtn";
             DisplayAvgEmpSalBtn.Size = new Size(302, 40);
             DisplayAvgEmpSalBtn.TabIndex = 2;
@@ -67,7 +68,7 @@
             // 
             // EditEmpBtn
             // 
-            EditEmpBtn.Location = new Point(528, 387);
+            EditEmpBtn.Location = new Point(528, 390);
             EditEmpBtn.Name = "EditEmpBtn";
             EditEmpBtn.Size = new Size(302, 40);
             EditEmpBtn.TabIndex = 3;
@@ -77,7 +78,7 @@
             // 
             // DeleteEmpBtn
             // 
-            DeleteEmpBtn.Location = new Point(528, 473);
+            DeleteEmpBtn.Location = new Point(528, 470);
             DeleteEmpBtn.Name = "DeleteEmpBtn";
             DeleteEmpBtn.Size = new Size(302, 40);
             DeleteEmpBtn.TabIndex = 4;
@@ -85,11 +86,22 @@
             DeleteEmpBtn.UseVisualStyleBackColor = true;
             DeleteEmpBtn.Click += DeleteEmpBtn_Click;
             // 
+            // EmployeeListBtn
+            // 
+            EmployeeListBtn.Location = new Point(528, 70);
+            EmployeeListBtn.Name = "EmployeeListBtn";
+            EmployeeListBtn.Size = new Size(302, 40);
+            EmployeeListBtn.TabIndex = 5;
+            EmployeeListBtn.Text = "View Employee List";
+            EmployeeListBtn.UseVisualStyleBackColor = true;
+            EmployeeListBtn.Click += EmployeeListBtn_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1231, 630);
+            Controls.Add(EmployeeListBtn);
             Controls.Add(DeleteEmpBtn);
             Controls.Add(EditEmpBtn);
             Controls.Add(DisplayAvgEmpSalBtn);
@@ -108,5 +120,6 @@
         private Button DisplayAvgEmpSalBtn;
         private Button EditEmpBtn;
         private Button DeleteEmpBtn;
+        private Button EmployeeListBtn;
     }
 }

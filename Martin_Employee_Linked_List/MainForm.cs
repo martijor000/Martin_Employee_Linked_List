@@ -101,6 +101,16 @@ namespace Martin_Employee_Linked_List
             }
         }
 
+        private void EmployeeListBtn_Click(object sender, EventArgs e)
+        {
+            List<Employee> employees;
+            employees = Company.Instance.GetAllEmployees();
+            DisplayAllEmployeesForm displayAllEmployeesForm = new DisplayAllEmployeesForm(employees);
+            this.Hide();
+            displayAllEmployeesForm.Show();
+            displayAllEmployeesForm.FormClosed += (s, args) => this.Show();
+
+        }
     }
 
 

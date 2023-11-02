@@ -16,11 +16,23 @@ namespace Martin_Employee_Linked_List
         public DisplayEmployeeForm(Employee _displayemployee)
         {
             InitializeComponent();
-            DisplayFirstNameLbl.Text = _displayemployee.GetFirstName;
-            DisplayLastNameLbl.Text = _displayemployee.GetLastName;
-            DisplayGenderLbl.Text = _displayemployee.GetGender;
-            DisplayDepartmentLbl.Text = _displayemployee.GetDepartment;
-            DisplaySalaryLbl.Text = _displayemployee.GetSalary.ToString("C");
+            if (_displayemployee != null)
+            {
+                DisplayFirstNameLbl.Text = _displayemployee.GetFirstName;
+                DisplayLastNameLbl.Text = _displayemployee.GetLastName;
+                DisplayGenderLbl.Text = _displayemployee.GetGender;
+                DisplayDepartmentLbl.Text = _displayemployee.GetDepartment;
+                DisplaySalaryLbl.Text = _displayemployee.GetSalary.ToString("C");
+            }
+            else
+            {
+                DisplayFirstNameLbl.Text = "Employee Not Found!";
+                DisplayLastNameLbl.Visible = false;
+                DisplayGenderLbl.Visible = false;
+                DisplayDepartmentLbl.Visible = false;
+                DisplaySalaryLbl.Visible = false;
+            }
+
         }
 
         private void DisplayEmployeeForm_Load(object sender, EventArgs e)

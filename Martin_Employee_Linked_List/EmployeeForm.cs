@@ -17,8 +17,8 @@ namespace Martin_Employee_Linked_List
         public EmployeeForm()
         {
             InitializeComponent();
-            GenderCmbBx.Items.Add("Male");
-            GenderCmbBx.Items.Add("Female");
+            GenderCmbBx.Items.Add("M");
+            GenderCmbBx.Items.Add("F");
             GenderCmbBx.Text = GenderCmbBx.Items[0].ToString();
         }
 
