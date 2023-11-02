@@ -41,7 +41,7 @@ namespace Martin_Employee_Linked_List
             {
                 root.Left = InsertNode(root.Left, employee);
             }
-            else if (employee.GetLastName.CompareTo(root._employee.GetLastName) > 0)
+            else if (employee.GetLastName.CompareTo(root._employee.GetLastName) >= 0)
             {
                 root.Right = InsertNode(root.Right, employee);
             }
@@ -100,6 +100,8 @@ namespace Martin_Employee_Linked_List
         public void Delete(Employee employee)
         {
             Root = DeleteNode(Root, employee);
+            NodeCount = NodeCount - 1;
+            TreeSalary = TreeSalary - employee.GetSalary;
         }
 
         private TreeNode DeleteNode(TreeNode root, Employee employee)
