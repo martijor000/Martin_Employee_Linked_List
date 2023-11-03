@@ -46,6 +46,8 @@ namespace Martin_Employee_Linked_List
 
         public Employee FindEmployee(string searchValue, SearchCriteria criteria)
         {
+            searchValue = char.ToUpper(searchValue[0]) + searchValue.Substring(1).ToLower();
+
             if (criteria == SearchCriteria.LastName && AlphaTree.ContainsKey(searchValue[0]))
             {
                 TreeNode node = AlphaTree[searchValue[0]].FindNode(searchValue, criteria);
@@ -91,8 +93,8 @@ namespace Martin_Employee_Linked_List
 
             foreach (var kvp in AlphaTree)
             {
-                total += kvp.Value.GetTreeSalary;
-                totalNodes += kvp.Value.GetNodeCount; 
+                total += kvp.Value.CalculateTreeSalary();
+                totalNodes += kvp.Value.CalculateNodeCount(); 
             }
 
             return total / totalNodes;

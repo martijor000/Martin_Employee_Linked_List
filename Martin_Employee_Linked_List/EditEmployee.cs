@@ -44,9 +44,18 @@ namespace Martin_Employee_Linked_List
             _editedEmployee.GetLastName = EditLastNameTxtbx.Text;
             _editedEmployee.GetGender = EditGenderCmb.Text;
             _editedEmployee.GetDepartment = EditDepartmentTxtbx.Text;
-            _editedEmployee.GetSalary = Convert.ToDecimal(EditSalaryTxtbx.Text);
+            _editedEmployee.GetSalary = ConvertSalary(EditSalaryTxtbx.Text);
             Company.Instance.SaveEditedEmployee(_employee, _editedEmployee);
             this.Close();
+        }
+
+        private decimal ConvertSalary(string salaryText)
+        {
+            if (decimal.TryParse(salaryText, out decimal salary))
+            {
+                return salary;
+            }
+            return 0;
         }
     }
 }

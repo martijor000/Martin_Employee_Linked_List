@@ -39,19 +39,16 @@ namespace Martin_Employee_Linked_List
                 }
                 else
                 {
-
+                    DisplayEmployeeForm display = new DisplayEmployeeForm(checkNull);
+                    display.ShowDialog();
                 }
                 this.Close();
             }
             else
             {
                 this.Hide();
-                Employee checkNull = company.FindEmployee(FindLastNameTxtbx.Text, SearchCriteria.LastName);
-                if (checkNull != null)
-                {
-                    DisplayEmployeeForm display = new DisplayEmployeeForm(checkNull);
-                    display.ShowDialog();
-                }
+                DisplayEmployeeForm display = new DisplayEmployeeForm(company.FindEmployee(FindLastNameTxtbx.Text, SearchCriteria.LastName));
+                display.ShowDialog();
                 this.Close();
             }
         }
@@ -62,8 +59,17 @@ namespace Martin_Employee_Linked_List
             if (isEditMode)
             {
                 this.Hide();
-                EditEmployee editForm = new EditEmployee(company.FindEmployee(FindFirstNameTxtBx.Text, SearchCriteria.FirstName));
-                editForm.ShowDialog();
+                Employee checkNull = company.FindEmployee(FindFirstNameTxtBx.Text, SearchCriteria.FirstName);
+                if(checkNull != null)
+                {
+                    EditEmployee editForm = new EditEmployee(checkNull);
+                    editForm.ShowDialog();
+                }
+                else
+                {
+                    DisplayEmployeeForm display = new DisplayEmployeeForm(checkNull);
+                    display.ShowDialog();
+                }
                 this.Close();
             }
             else
@@ -82,8 +88,17 @@ namespace Martin_Employee_Linked_List
             if (isEditMode)
             {
                 this.Hide();
-                EditEmployee editForm = new EditEmployee(company.FindEmployee(FindDepartmentTxtBx.Text, SearchCriteria.Department));
-                editForm.ShowDialog();
+                Employee checkNull = company.FindEmployee(FindDepartmentTxtBx.Text, SearchCriteria.Department);
+                if (checkNull != null)
+                {
+                    EditEmployee editForm = new EditEmployee(checkNull);
+                    editForm.ShowDialog();
+                }
+                else
+                {
+                    DisplayEmployeeForm display = new DisplayEmployeeForm(checkNull);
+                    display.ShowDialog();
+                }
                 this.Close();
             }
             else

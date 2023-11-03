@@ -14,12 +14,6 @@ namespace Martin_Employee_Linked_List
         private int NodeCount;
         private decimal TreeSalary;
 
-        public int GetNodeCount
-        {
-            get { return NodeCount; }
-            set { NodeCount = value; }
-        }
-
         public BinaryTree()
         {
             Root = null;
@@ -37,11 +31,17 @@ namespace Martin_Employee_Linked_List
                 root = new TreeNode(employee);
                 return root;
             }
-            if (employee.GetLastName.CompareTo(root._employee.GetLastName) < 0)
+            if (employee.GetLastName.CompareTo(root._employee.GetLastName) < 0 ||
+                (employee.GetLastName.CompareTo(root._employee.GetLastName) == 0) && 
+                employee.GetFirstName.CompareTo(root._employee.GetFirstName) < 0
+
+                )
             {
                 root.Left = InsertNode(root.Left, employee);
             }
-            else if (employee.GetLastName.CompareTo(root._employee.GetLastName) >= 0)
+            else if (employee.GetLastName.CompareTo(root._employee.GetLastName) > 0 ||
+                employee.GetLastName.CompareTo(root._employee.GetLastName) == 0 &&
+                employee.GetFirstName.CompareTo(root._employee.GetFirstName) > 0)
             {
                 root.Right = InsertNode(root.Right, employee);
             }
@@ -52,13 +52,6 @@ namespace Martin_Employee_Linked_List
         {
             return FindNodeRecursive(Root, lastName, searchCriteria);
         }
-
-        public decimal GetTreeSalary
-        {
-            get { return TreeSalary; }
-            set { TreeSalary = value; }
-        }
-
         private TreeNode FindNodeRecursive(TreeNode node, string searchValue, SearchCriteria searchCriteria)
         {
             if (node == null)
@@ -71,13 +64,13 @@ namespace Martin_Employee_Linked_List
             switch (searchCriteria)
             {
                 case SearchCriteria.LastName:
-                    comparisonResult = searchValue.CompareTo(node._employee.GetLastName);
+                    comparisonResult = searchValue.ToLower().CompareTo(node._employee.GetLastName.ToLower());
                     break;
                 case SearchCriteria.FirstName:
-                    comparisonResult = searchValue.CompareTo(node._employee.GetFirstName);
+                    comparisonResult = searchValue.ToLower().CompareTo(node._employee.GetFirstName.ToLower());
                     break;
                 case SearchCriteria.Department:
-                    comparisonResult = searchValue.CompareTo(node._employee.GetDepartment);
+                    comparisonResult = searchValue.ToLower().CompareTo(node._employee.GetDepartment.ToLower());
                     break;
                 default:
                     throw new ArgumentException("Invalid search criteria.");
@@ -97,11 +90,10 @@ namespace Martin_Employee_Linked_List
             }
         }
 
+
         public void Delete(Employee employee)
         {
             Root = DeleteNode(Root, employee);
-            NodeCount = NodeCount - 1;
-            TreeSalary = TreeSalary - employee.GetSalary;
         }
 
         private TreeNode DeleteNode(TreeNode root, Employee employee)
@@ -109,7 +101,7 @@ namespace Martin_Employee_Linked_List
             if (root == null)
                 return null;
 
-            int comparisonResult = employee.GetLastName.CompareTo(root._employee.GetLastName);
+            int comparisonResult = employee.GetLastName.ToLower().CompareTo(root._employee.GetLastName.ToLower());
 
             if (comparisonResult < 0)
             {
@@ -167,5 +159,34 @@ namespace Martin_Employee_Linked_List
             return employeeList;
         }
 
+        public int CalculateNodeCount()
+        {
+            return CalculateNodeCountRecursive(Root);
+        }
+
+        private int CalculateNodeCountRecursive(TreeNode node)
+        {
+            if (node == null)
+            {
+                return 0;
+            }
+
+            return 1 + CalculateNodeCountRecursive(node.Left) + CalculateNodeCountRecursive(node.Right);
+        }
+
+        public decimal CalculateTreeSalary()
+        {
+            return CalculateTreeSalaryRecursive(Root);
+        }
+
+        private decimal CalculateTreeSalaryRecursive(TreeNode node)
+        {
+            if (node == null)
+            {
+                return 0;
+            }
+
+            return node._employee.GetSalary + CalculateTreeSalaryRecursive(node.Left) + CalculateTreeSalaryRecursive(node.Right);
+        }
     }
 }

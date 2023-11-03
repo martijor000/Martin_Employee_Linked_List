@@ -24,9 +24,18 @@ namespace Martin_Employee_Linked_List
 
         private void SubmitBtn_Click(object sender, EventArgs e)
         {
-            Employee employee = new Employee(LastNameTxtBx.Text, FirstNameTxtBx.Text, GenderCmbBx.Text, DepartmentTxtBx.Text, Decimal.Parse(SalaryTxtBx.Text));
+            Employee employee = new Employee(LastNameTxtBx.Text, FirstNameTxtBx.Text, GenderCmbBx.Text, DepartmentTxtBx.Text, ConvertSalary(SalaryTxtBx.Text));
             company.AddEmployee(employee);
             this.Close();
+        }
+
+        private decimal ConvertSalary(string salaryText)
+        {
+            if (decimal.TryParse(salaryText, out decimal salary))
+            {
+                return salary;
+            }
+            return 0;
         }
     }
 }
