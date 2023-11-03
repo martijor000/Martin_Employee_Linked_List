@@ -19,14 +19,17 @@ namespace Martin_Employee_Linked_List
         public EditEmployee(Employee _editemployee)
         {
             InitializeComponent();
+           
             EditFirstNameTxtbx.Text = _editemployee.GetFirstName;
             EditLastNameTxtbx.Text = _editemployee.GetLastName;
+            EditGenderCmb.Text = _editemployee.GetGender;
             EditGenderCmb.Items.Add("F");
             EditGenderCmb.Items.Add("M");
             EditDepartmentTxtbx.Text = _editemployee.GetDepartment;
             EditSalaryTxtbx.Text = _editemployee.GetSalary.ToString();
             _employee = _editemployee;
             _editedEmployee = _employee;
+
         }
 
         public void DeleteBtn_Click(object sender, EventArgs e)

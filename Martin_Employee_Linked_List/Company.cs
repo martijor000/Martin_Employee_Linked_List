@@ -100,6 +100,8 @@ namespace Martin_Employee_Linked_List
 
         public List<Employee> GetAllEmployees()
         {
+            EmployeeList.Clear();
+
             foreach (var kvp in AlphaTree)
             {
                 if(kvp.Value.Root != null)

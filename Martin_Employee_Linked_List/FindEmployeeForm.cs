@@ -31,15 +31,27 @@ namespace Martin_Employee_Linked_List
             if (isEditMode)
             {
                 this.Hide();
-                EditEmployee editForm = new EditEmployee(company.FindEmployee(FindLastNameTxtbx.Text, SearchCriteria.LastName));
-                editForm.ShowDialog();
+                Employee checkNull = company.FindEmployee(FindLastNameTxtbx.Text, SearchCriteria.LastName);
+                if(checkNull != null)
+                {
+                    EditEmployee editForm = new EditEmployee(checkNull);
+                    editForm.ShowDialog();
+                }
+                else
+                {
+
+                }
                 this.Close();
             }
             else
             {
                 this.Hide();
-                DisplayEmployeeForm display = new DisplayEmployeeForm(company.FindEmployee(FindLastNameTxtbx.Text, SearchCriteria.LastName));
-                display.ShowDialog();
+                Employee checkNull = company.FindEmployee(FindLastNameTxtbx.Text, SearchCriteria.LastName);
+                if (checkNull != null)
+                {
+                    DisplayEmployeeForm display = new DisplayEmployeeForm(checkNull);
+                    display.ShowDialog();
+                }
                 this.Close();
             }
         }

@@ -109,7 +109,6 @@ namespace Martin_Employee_Linked_List
             this.Hide();
             displayAllEmployeesForm.Show();
             displayAllEmployeesForm.FormClosed += (s, args) => this.Show();
-
         }
     }
 
